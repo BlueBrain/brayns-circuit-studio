@@ -1,0 +1,15 @@
+.view-fileBrowser-HeaderFileBrowser {
+    padding: 0.5rem;
+    flex: 0 0 auto;
+}
+
+.view-fileBrowser-HeaderFileBrowser > div.error {
+    color: var(--theme-color-error);
+    font-size: 80%;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.view-fileBrowser-HeaderFileBrowser > div.error.hide {
+    opacity: 0;
+}

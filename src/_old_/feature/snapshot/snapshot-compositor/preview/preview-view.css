@@ -1,0 +1,76 @@
+.feature-snapshot-snapshotCompositor-PreviewView {
+    position: relative;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background-image: url(./checker.jpg);
+}
+
+.feature-snapshot-snapshotCompositor-PreviewView div.preview {
+    --background-color: #0006;
+    background-color: var(--background-color);
+    position: absolute;
+    overflow: hidden;
+    left: 50%;
+    top: 50%;
+}
+
+.feature-snapshot-snapshotCompositor-PreviewView canvas {
+    transition: 0.3s opacity;
+}
+
+.feature-snapshot-snapshotCompositor-PreviewView canvas.show {
+    opacity: 1;
+}
+
+.feature-snapshot-snapshotCompositor-PreviewView canvas.hide {
+    opacity: 0;
+}
+
+.feature-snapshot-snapshotCompositor-PreviewView canvas.image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.feature-snapshot-snapshotCompositor-PreviewView canvas.scalebar {
+    position: absolute;
+    left: 8px;
+    top: 8px;
+}
+
+.feature-snapshot-snapshotCompositor-PreviewView canvas.colorramp {
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+}
+
+.feature-snapshot-snapshotCompositor-PreviewView > div.scale {
+    color: #fff;
+    background-color: #000b;
+    margin: 0;
+    border-radius: 0 0 1em 1em;
+    position: absolute;
+    top: 0;
+    left: calc(50% - 150px);
+    width: 300px;
+    box-shadow: 0 0.25em 0.5em #0007;
+    text-align: center;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+    padding: 0.25em 1em;
+    cursor: pointer;
+}
+
+.feature-snapshot-snapshotCompositor-PreviewView > div.scale.show {
+    opacity: 1;
+    transform: translateY(0);
+}

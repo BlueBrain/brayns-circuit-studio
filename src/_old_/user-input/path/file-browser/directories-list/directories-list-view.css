@@ -1,0 +1,51 @@
+.fileSystemBrowser-view-DirListView {
+    background: var(--theme-color-screen);
+    color: var(--theme-color-on-screen);
+    margin: 0.25rem;
+    overflow: auto;
+    padding: 0.25em;
+    min-width: 16rem;
+    border-radius: 0.25em;
+}
+
+.fileSystemBrowser-view-DirListView > button.dir-item {
+    color: inherit;
+    background: inherit;
+    font-size: 1rem;
+    border: none;
+    text-decoration: none;
+    text-align: left;
+    box-shadow: none;
+    width: 100%;
+    margin: 0.125em 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.fileSystemBrowser-view-DirListView > button.dir-item.enabled:hover {
+    cursor: pointer;
+    background: var(--theme-color-accent);
+    color: var(--theme-color-on-accent);
+}
+
+.fileSystemBrowser-view-DirListView > button.dir-item.highlight {
+    background: var(--theme-color-section);
+    color: var(--theme-color-on-section);
+    border-radius: 0.25em;
+    line-height: 1.5em;
+    font-weight: bolder;
+}
+
+.fileSystemBrowser-view-DirListView > button.dir-item.disabled {
+    font-weight: normal;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.fileSystemBrowser-view-DirListView > button.dir-item:active {
+    background: var(--theme-color-accent-dark);
+    color: var(--theme-color-on-accent-dark);
+}

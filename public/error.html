@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="shortcut icon" href="favicon.ico" />
+        <meta
+            name="viewport"
+            content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"
+        />
+
+        <meta name="theme-color" content="#995511" />
+        <title>BCS error!</title>
+        <style>
+            html,
+            body {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                overflow: hidden;
+                background-size: cover;
+                background-color: #0f232e;
+                background-image: url(background.jpg);
+                font-family: sans-serif;
+                font-size: 2.5vmin;
+            }
+            body {
+                display: grid;
+                place-items: center;
+            }
+            #root {
+                padding: 2em;
+                border-radius: 1em;
+                backdrop-filter: blur(0.15em);
+                color: #fff;
+                max-width: 30rem;
+                background-color: #0f232e55;
+            }
+            a,
+            a:visited {
+                color: #fa0;
+                font-weight: bolder;
+            }
+            h1 {
+                text-align: center;
+                font-size: 1.5rem;
+                border-bottom: 1px solid #fff5;
+            }
+        </style>
+    </head>
+
+    <body>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div id="root">
+            <h1>Allocating a node on BB5 has failed!</h1>
+            <p>
+                There can be different reasons for this. Before contacting the
+                Viz Team, please check the following points:
+            </p>
+            <ul>
+                <li>Are BB5 or GPFS in maintenance?</li>
+                <li>Are there some nodes left on BB5?</li>
+                <li>
+                    Have you installed the
+                    <a
+                        target="_BLANK"
+                        href="https://bbpteam.epfl.ch/project/spaces/display/SDKB/Install+Root+Certificate+of+BBP+Internal+Certificate+Authority"
+                        >BBP certificate</a
+                    >
+                    on your computer?
+                </li>
+            </ul>
+            <br /><br />
+            <p>
+                If you still have issues, please reach out on
+                <a
+                    target="slack"
+                    href="https://bluebrainproject.slack.com/archives/C02RWJ8QLAV"
+                    >Slack</a
+                >.
+                <br />
+                At any time you can <a href="index.html">try again</a>.
+            </p>
+        </div>
+    </body>
+</html>

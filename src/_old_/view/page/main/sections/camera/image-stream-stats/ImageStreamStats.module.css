@@ -1,0 +1,16 @@
+.ImageStreamStats {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.ImageStreamStats > div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.ImageStreamStats > div > div:nth-child(2n) {
+    opacity: 0.5;
+}

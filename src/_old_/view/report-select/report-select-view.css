@@ -1,0 +1,28 @@
+.view-ReportSelectView {
+    margin: 1rem 0;
+}
+
+.view-ReportSelectView header {
+    display: flex;
+    height: 2rem;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.view-ReportSelectView header > div {
+    flex: 0 0 5rem;
+    padding: 0 0.5rem;
+    font-size: 80%;
+    opacity: 0.5;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.view-ReportSelectView header > div.name {
+    flex: 1 1 auto;
+}

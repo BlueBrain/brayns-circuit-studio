@@ -1,0 +1,15 @@
+.fileSystemBrowser-view-BrowserView {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.fileSystemBrowser-view-BrowserView div.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}

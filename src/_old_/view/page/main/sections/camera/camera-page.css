@@ -1,0 +1,47 @@
+.view-page-CameraPage > div.grid {
+    --size: 7.5em;
+    display: grid;
+    grid-template-columns: 1fr var(--size) var(--size) var(--size);
+    gap: 2px;
+    place-items: center start;
+}
+
+.view-page-CameraPage > div.grid > details {
+    padding: 0 0 0 1em;
+    grid-column: 3/5;
+    grid-row: 6 / span 2;
+    place-self: center center;
+}
+
+.view-page-CameraPage > div.grid div.number {
+    height: 2em;
+    width: var(--size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--theme-color-section);
+    color: var(--theme-color-on-section);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.view-page-CameraPage > div.grid div.number span.dec {
+    font-size: 80%;
+    opacity: 0.8;
+}
+
+.view-page-CameraPage > div.import-export {
+    margin: 2em 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.view-page-CameraPage > div.import-export button {
+    width: 200px;
+}
+
+pre.python-code {
+    white-space: pre;
+}

@@ -1,0 +1,51 @@
+.view-page-main-sections-slicing-CollageButtonView {
+    all: unset;
+    display: block;
+    margin: 0.25em 0;
+    border-radius: 0.5em;
+    box-shadow: 0 2px 4px #000;
+    width: 100%;
+}
+
+.view-page-main-sections-slicing-CollageButtonView > div {
+    padding: 0.5em;
+}
+
+.view-page-main-sections-slicing-CollageButtonView > header {
+    border: 1px solid var(--theme-color-on-frame-opacity-50);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+    height: 2em;
+    border-radius: 0.5em;
+    padding: 0 1em 0 0;
+}
+
+.view-page-main-sections-slicing-CollageButtonView > header > * {
+    flex: 0 0 auto;
+    cursor: pointer;
+}
+
+.view-page-main-sections-slicing-CollageButtonView > header > div.name {
+    flex: 1 1 auto;
+}
+
+.view-page-main-sections-slicing-CollageButtonView > header .clickable {
+    transition: color 0.5s;
+}
+
+.view-page-main-sections-slicing-CollageButtonView > header .clickable:hover {
+    color: var(--theme-color-accent);
+}
+
+.view-page-main-sections-slicing-CollageButtonView > header > .chevron {
+    transition: transform 0.3s;
+}
+
+.view-page-main-sections-slicing-CollageButtonView.expanded
+    > header
+    > .chevron {
+    transform: rotate(90deg);
+}

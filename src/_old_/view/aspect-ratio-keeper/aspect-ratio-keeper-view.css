@@ -1,0 +1,6 @@
+.view-AspectRatioKeeperView {
+    background-image: url(@/_old_/gfx/checker.jpg);
+    background-repeat: repeat;
+    display: grid;
+    place-items: center;
+}

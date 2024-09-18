@@ -1,0 +1,42 @@
+div.error {
+    margin: 0;
+    padding: 1rem;
+    max-width: max(90vw, 480px);
+    overflow-x: auto;
+}
+
+div.error pre {
+    white-space: pre-wrap;
+}
+
+.wait {
+    padding: 1rem;
+    background-color: var(--theme-color-frame-opacity-90);
+    color: var(--theme-color-on-frame);
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 480px;
+    gap: 1rem;
+}
+
+.wait > * {
+    flex: 1 1 auto;
+}
+
+.wait > svg {
+    flex: 0 0 3rem;
+    animation: rotation-anim 1s linear infinite;
+    width: 3rem;
+    height: 3rem;
+}
+
+@keyframes rotation-anim {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}

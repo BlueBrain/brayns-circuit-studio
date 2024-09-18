@@ -1,0 +1,9 @@
+.error {
+    font-size: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--theme-color-error);
+    max-width: 280px;
+    cursor: pointer;
+}

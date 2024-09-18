@@ -1,0 +1,15 @@
+.view-SpinnerView {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+    margin: 1em;
+}
+
+.view-SpinnerView > * {
+    flex: 1 1 auto;
+}
+
+.view-SpinnerView > *:first-child {
+    flex: 0 0 auto;
+}

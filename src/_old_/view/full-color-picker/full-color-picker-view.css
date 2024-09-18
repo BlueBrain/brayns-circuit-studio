@@ -1,0 +1,16 @@
+.view-FullColorPickerView > footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 4em;
+}
+
+.view-FullColorPickerView > main {
+    padding: 1em;
+}
+
+.view-FullColorPickerView > main div.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

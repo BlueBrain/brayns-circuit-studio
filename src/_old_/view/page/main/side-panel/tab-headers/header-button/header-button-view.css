@@ -1,0 +1,26 @@
+.view-app-appNav-tabHeaders-HeaderButtonView {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 4rem;
+    width: 4rem;
+    opacity: 0.5;
+    font-size: 80%;
+    margin: 0;
+}
+
+.view-app-appNav-tabHeaders-HeaderButtonView.selected {
+    opacity: 1;
+    box-shadow: 0 -0.25em var(--theme-color-accent) inset;
+}
+
+.view-app-appNav-tabHeaders-HeaderButtonView > div.label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+}
+
+.view-app-appNav-tabHeaders-HeaderButtonView:hover {
+    background-color: var(--theme-color-accent-opacity-20);
+}

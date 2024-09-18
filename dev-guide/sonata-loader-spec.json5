@@ -1,0 +1,171 @@
+[
+    {
+        extensions: [".json"],
+        input_parameters_schema: {
+            additionalProperties: false,
+            properties: {
+                node_population_settings: {
+                    description: "List of node populations to load and their load settings",
+                    items: {
+                        additionalProperties: false,
+                        properties: {
+                            edge_populations: {
+                                description: "List of edge populations and their settings to be loaded",
+                                items: {
+                                    additionalProperties: false,
+                                    properties: {
+                                        edge_percentage: {
+                                            default: 1,
+                                            description: "Percentage of edges to load from all available",
+                                            maximum: 1,
+                                            minimum: 0.0010000000474974513,
+                                            type: "number",
+                                        },
+                                        edge_population: {
+                                            description: "Name of the edge population to load",
+                                            type: "string",
+                                        },
+                                        edge_report_name: {
+                                            description: "Name of a synapse report to load along the edge population",
+                                            type: "string",
+                                        },
+                                        load_afferent: {
+                                            description: "Wether to load afferent or efferent edges",
+                                            type: "boolean",
+                                        },
+                                        radius: {
+                                            default: 2,
+                                            description: "Radius used for the synapse sphere geometry (Ignored for endfeet)",
+                                            minimum: 0.10000000149011612,
+                                            type: "number",
+                                        },
+                                    },
+                                    required: [
+                                        "edge_population",
+                                        "load_afferent",
+                                    ],
+                                    title: "SonataEdgePopulationParameters",
+                                    type: "object",
+                                },
+                                type: "array",
+                            },
+                            neuron_morphology_parameters: {
+                                additionalProperties: false,
+                                description: "Settings to configure the morphology geometry load. Ignored for vasculature populations",
+                                properties: {
+                                    geometry_type: {
+                                        default: "smooth",
+                                        description: "Geometry generation configuration",
+                                        enum: [
+                                            "original",
+                                            "smooth",
+                                            "section_smooth",
+                                            "constant_radii",
+                                        ],
+                                        type: "string",
+                                    },
+                                    load_axon: {
+                                        default: false,
+                                        description: "Load the axon section of the neuron",
+                                        type: "boolean",
+                                    },
+                                    load_dendrites: {
+                                        default: false,
+                                        description: "Load the dendrite secitons of the neuron",
+                                        type: "boolean",
+                                    },
+                                    load_soma: {
+                                        default: true,
+                                        description: "Load the soma section of the neuron",
+                                        type: "boolean",
+                                    },
+                                    radius_multiplier: {
+                                        default: 1,
+                                        description: "Parameter to multiply all morphology sample radii by",
+                                        minimum: 0.10000000149011612,
+                                        type: "number",
+                                    },
+                                },
+                                title: "NeuronMorphologyLoaderParameters",
+                                type: "object",
+                            },
+                            node_ids: {
+                                description: "List of node IDs to load from the population. Invalidates 'node_percentage' and 'node_sets'",
+                                items: {
+                                    minimum: 0,
+                                    type: "integer",
+                                },
+                                type: "array",
+                            },
+                            node_percentage: {
+                                default: 0.01,
+                                description: "Percentage of nodes to load after filter them by whichever node sets have been specified. Ignored if a lsit of node ids is provided",
+                                maximum: 1,
+                                minimum: 0.0010000000474974513,
+                                type: "number",
+                            },
+                            node_population: {
+                                description: "Name of the node population to load",
+                                type: "string",
+                            },
+                            node_sets: {
+                                description: "List of node set names/regex to filter the node population load. Ignored if a list of node ids is provided",
+                                items: {
+                                    type: "string",
+                                },
+                                type: "array",
+                            },
+                            report_name: {
+                                description: "Name of the report file to load (Ignored if report_type is 'none' or 'spikes')",
+                                type: "string",
+                            },
+                            report_type: {
+                                default: "none",
+                                description: "Type of report to load for the given node population.",
+                                enum: [
+                                    "none",
+                                    "spikes",
+                                    "compartment",
+                                    "summation",
+                                    "synapse",
+                                    "bloodflow_pressure",
+                                    "bloodflow_speed",
+                                    "bloodflow_radii",
+                                ],
+                                type: "string",
+                            },
+                            spike_transition_time: {
+                                default: 1,
+                                description: "When loading a spike report, fade-in and fade-out time, in milliseconds, from resting state to spike state.",
+                                minimum: 0,
+                                type: "number",
+                            },
+                            vasculature_geometry_parameters: {
+                                additionalProperties: false,
+                                description: "Settings to configure the vasculature geometry load. Ignored for any node population that is not vasculature",
+                                properties: {
+                                    radius_multiplier: {
+                                        default: 1,
+                                        description: "Factor by which to multiply all vasculature sample radii",
+                                        minimum: 0.10000000149011612,
+                                        type: "number",
+                                    },
+                                },
+                                title: "VasculatureGeometrySettings",
+                                type: "object",
+                            },
+                        },
+                        required: ["node_population"],
+                        title: "SonataNodePopulationParameters",
+                        type: "object",
+                    },
+                    type: "array",
+                },
+            },
+            required: ["node_population_settings"],
+            title: "SonataLoaderParameters",
+            type: "object",
+        },
+        name: "SONATA loader",
+    },
+]

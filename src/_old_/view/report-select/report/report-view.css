@@ -1,0 +1,45 @@
+.view-reportSelect-ReportView {
+    display: flex;
+    height: 2rem;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.view-reportSelect-ReportView.selected {
+    background-color: var(--theme-color-accent);
+    color: var(--theme-color-on-accent);
+    pointer-events: none;
+    cursor: default;
+}
+
+.view-reportSelect-ReportView:hover {
+    background-color: var(--theme-color-accent-light);
+    color: var(--theme-color-on-accent-light);
+}
+
+.view-reportSelect-ReportView > div {
+    flex: 0 0 5rem;
+    padding: 0 0.5rem;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 90%;
+}
+
+.view-reportSelect-ReportView > div.name {
+    flex: 1 1 auto;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.view-reportSelect-ReportView.selected > div.name {
+    font-weight: bolder;
+}
+
+.view-reportSelect-ReportView > div.name > .unit {
+    opacity: 0.5;
+}

@@ -1,0 +1,21 @@
+.feature-bezierSlices-main-quad-StandardProjectionView {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.feature-bezierSlices-main-quad-StandardProjectionView > * {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.feature-bezierSlices-main-quad-StandardProjectionView > canvas.overlay {
+    opacity: 0.9;
+    pointer-events: none;
+}

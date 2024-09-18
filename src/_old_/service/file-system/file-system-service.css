@@ -1,0 +1,44 @@
+.service-FileSystemBrowsing {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    width: 900px;
+    height: 90vh;
+    max-width: 90vw;
+    background-color: var(--theme-color-frame);
+    color: var(--theme-color-on-frame);
+}
+
+.service-FileSystemBrowsing > div.body {
+    flex: 1 1 auto;
+    padding: 0.25rem;
+}
+
+.service-FileSystemBrowsing > div.body div.children,
+.service-FileSystemBrowsing > div.body > div {
+    height: 100%;
+}
+
+.service-FileSystemBrowsing > header {
+    height: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 1rem;
+    background-color: var(--theme-color-primary-dark);
+    color: var(--theme-color-on-primary-dark);
+    flex: 0 0 auto;
+}
+
+.service-FileSystemBrowsing > footer {
+    height: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--theme-color-section);
+    color: var(--theme-color-on-section);
+    flex: 0 0 auto;
+}

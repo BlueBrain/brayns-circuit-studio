@@ -1,0 +1,10 @@
+.TransferFunction :global(div.range) {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1em;
+}
+
+.TransferFunction :global(div.range) > * {
+    flex: 1 1 auto;
+}

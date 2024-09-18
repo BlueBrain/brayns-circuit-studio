@@ -1,0 +1,11 @@
+.view-circuitColorEditor-OptionalColorsEditorView .flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.view-circuitColorEditor-OptionalColorsEditorView .list {
+    max-height: 40vh;
+    overflow: auto;
+}

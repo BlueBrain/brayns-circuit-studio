@@ -1,0 +1,41 @@
+.Region {
+    margin: 1px 0;
+}
+
+.Region > header > span > svg {
+    filter: brightness(50%);
+}
+
+.Region.visible > header > span > svg {
+    filter: brightness(100%);
+}
+
+.Region > header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5em;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.Region.expanded > header .chevron {
+    transform: rotate(90deg);
+}
+
+.Region > header > * {
+    flex: 0 0 auto;
+}
+
+.Region > header > div {
+    flex: 1 1 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 0.5em;
+    border-radius: 999vmax;
+}
+
+.Region > section {
+    margin: 0 0 0 0.5em;
+}

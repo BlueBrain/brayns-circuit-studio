@@ -1,0 +1,15 @@
+.view-OrientationView {
+    max-width: calc(100% - 1em);
+}
+
+.view-OrientationView > div.numbers {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    gap: 0.25em;
+}
+
+.view-OrientationView > div.sliders {
+    display: grid;
+    grid-template-columns: 1em 1fr;
+    place-items: center;
+}

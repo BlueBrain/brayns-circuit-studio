@@ -1,0 +1,43 @@
+.service-braynsApi-ProgressView {
+    width: 640px;
+    max-width: calc(100vw - 4rem);
+    margin: 0;
+    padding: 2rem 1rem;
+    background-color: var(--theme-color-frame-opacity-90);
+    color: var(--theme-color-on-frame);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+.service-braynsApi-ProgressView > .label {
+    max-width: 600px;
+    word-wrap: break-word;
+    font-size: 80%;
+    opacity: 0.7;
+}
+
+.service-braynsApi-ProgressView > .progress {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.service-braynsApi-ProgressView > .cancel {
+    display: grid;
+    place-items: center;
+    margin-top: 1rem;
+}
+
+.service-braynsApi-ProgressView progress {
+    width: 100%;
+    flex: 1 1 auto;
+}
+
+.service-braynsApi-ProgressView .value {
+    white-space: nowrap;
+    width: 5rem;
+    text-align: right;
+}

@@ -1,0 +1,24 @@
+.view-page-models-CircuitDetailsView > header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1em;
+}
+
+.view-page-models-CircuitDetailsView > header > * {
+    flex: 0 0 auto;
+}
+
+.view-page-models-CircuitDetailsView > header > h1 {
+    flex: 1 1 auto;
+}
+
+.view-page-models-CircuitDetailsView > header > h1 > .ids {
+    opacity: 0.5;
+}
+
+.view-page-models-CircuitDetailsView > header > h1 > .ids::before {
+    content: "#";
+}

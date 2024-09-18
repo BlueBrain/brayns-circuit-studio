@@ -1,0 +1,19 @@
+.view-MenuView {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+    gap: 1em;
+}
+
+.view-MenuView > button {
+    opacity: 1;
+    filter: blur(0);
+    transition: all 0.5s;
+}
+
+.view-MenuView.busy > button {
+    opacity: 0.5;
+    filter: blur(3px);
+    pointer-events: none;
+}

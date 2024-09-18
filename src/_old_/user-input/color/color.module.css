@@ -1,0 +1,23 @@
+.presets {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 0.25em;
+}
+
+.presets > button {
+    content: ".";
+    color: transparent;
+    border-radius: 0.25em;
+    border: none;
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 0 2px #000 inset;
+    width: 3rem;
+    height: 3em;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.presets > button:hover {
+    transform: scale(1.1);
+}

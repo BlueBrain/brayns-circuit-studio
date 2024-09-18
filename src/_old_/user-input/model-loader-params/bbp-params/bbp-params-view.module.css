@@ -1,0 +1,43 @@
+.bbpParams div.twoCols {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5em;
+    place-items: center start;
+}
+
+.bbpParams div.toggles {
+    margin: 1em 0 0 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+        "a a b b c c"
+        "d d d e e e";
+    gap: 0.5em;
+    padding: 0.25em;
+    place-items: stretch;
+}
+
+.bbpParams div.toggles > *:nth-child(1) {
+    grid-area: a;
+}
+
+.bbpParams div.toggles > *:nth-child(2) {
+    grid-area: b;
+}
+
+.bbpParams div.toggles > *:nth-child(3) {
+    grid-area: c;
+}
+
+.bbpParams div.toggles > *:nth-child(4) {
+    grid-area: d;
+}
+
+.bbpParams div.toggles > *:nth-child(5) {
+    grid-area: e;
+}
+
+.bbpParams em {
+    opacity: 0.5;
+}

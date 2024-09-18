@@ -1,0 +1,11 @@
+export type ColorName =
+    | "primary"
+    | "primary-dark"
+    | "primary-light"
+    | "accent"
+    | "accent-dark"
+    | "accent-light"
+    | "screen"
+    | "frame"
+    | "section"
+    | "input"

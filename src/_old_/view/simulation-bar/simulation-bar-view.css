@@ -1,0 +1,48 @@
+.view-SimulationBarView {
+    height: 4rem;
+    background-color: var(--theme-color-screen);
+    color: var(--theme-color-on-screen);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.view-SimulationBarView > * {
+    flex: 0 0 auto;
+    margin: 0 0.5rem;
+    min-width: 3rem;
+}
+
+.view-SimulationBarView > div.bar {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+.view-SimulationBarView > .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 5rem;
+    max-width: 5rem;
+    overflow: hidden;
+    border-radius: 0.25rem;
+    font-size: 90%;
+}
+
+.view-SimulationBarView > .info > * {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.view-SimulationBarView > .info > div:last-child {
+    opacity: 0.5;
+    font-size: 80%;
+}

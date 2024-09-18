@@ -1,0 +1,75 @@
+nav.view-app-AppNavView {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 30rem;
+    background-color: var(--theme-color-screen);
+    color: var(--theme-color-on-screen);
+    box-shadow: var(--theme-shadow-header);
+    overflow: hidden;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+nav.view-app-AppNavView > header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--theme-color-primary-dark);
+    color: var(--theme-color-on-primary-dark);
+    box-shadow: var(--theme-shadow-header);
+    height: 3rem;
+}
+
+nav.view-app-AppNavView > header > div.flex {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+nav.view-app-AppNavView > header > div.flex .inline {
+    display: inline-block;
+}
+
+nav.view-app-AppNavView > header > div.flex .label {
+    opacity: 0.5;
+    font-size: 80%;
+}
+
+nav.view-app-AppNavView > header .port {
+    opacity: 0.5;
+}
+
+nav.view-app-AppNavView > header .hide {
+    opacity: 0.1;
+    transition: opacity 0.3s;
+}
+
+nav.view-app-AppNavView > header .show {
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+nav.view-app-AppNavView > menu {
+    flex: 1 1 auto;
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+}
+
+nav.view-app-AppNavView > menu > div.pages {
+    height: calc(100% - 4rem);
+}
+
+nav.view-app-AppNavView > menu > div.pages > * {
+    padding: 1rem;
+    box-sizing: border-box;
+}

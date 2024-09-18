@@ -1,0 +1,18 @@
+.view-SnapshotParamsInputView div.flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.view-SnapshotParamsInputView div.preview {
+    position: relative;
+    height: 240px;
+    display: grid;
+    place-items: center;
+}
+
+.view-SnapshotParamsInputView div.preview div.image > img {
+    box-shadow: 0 0.125rem 0.25rem #0008;
+    background-image: url(./checker.jpg);
+}

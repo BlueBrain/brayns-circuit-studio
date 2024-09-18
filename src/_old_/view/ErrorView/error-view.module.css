@@ -1,0 +1,16 @@
+.ErrorView {
+    max-width: min(90vw, 600px);
+    padding: 1em;
+}
+
+.ErrorView > pre,
+.ErrorView details pre {
+    white-space: pre-wrap;
+    background-color: var(--theme-color-error);
+    color: var(--theme-color-on-error);
+    padding: 0.5em;
+}
+
+.ErrorView > a {
+    margin-top: 10em;
+}

@@ -1,0 +1,6 @@
+.sonataParams {
+    max-height: 80vh;
+    overflow: auto;
+    width: 480px;
+    max-width: 90vw;
+}

@@ -1,0 +1,9 @@
+.view-page-collagePreview-SnapshotDimensionsView {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.view-page-collagePreview-SnapshotDimensionsView > div {
+    flex: 1 1 auto;
+}

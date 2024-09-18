@@ -1,0 +1,25 @@
+.view-circuitColorEditor-colorByGid-GidsRangeView {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    gap: 0.5em;
+    margin: 0.25em;
+    background-image: linear-gradient(
+        to top,
+        transparent,
+        var(--theme-color-screen-opacity-50),
+        transparent
+    );
+}
+
+.view-circuitColorEditor-colorByGid-GidsRangeView > * {
+    flex: 0 0 auto;
+}
+
+.view-circuitColorEditor-colorByGid-GidsRangeView > .range {
+    flex: 1 1 auto;
+    word-break: break-all;
+    font-size: 80%;
+    text-align: center;
+}

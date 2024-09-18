@@ -1,0 +1,16 @@
+.view-app-AppMenuView {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.view-app-AppMenuView > div {
+    margin: 2rem 1rem;
+}
+
+.view-app-AppMenuView > div > p {
+    opacity: 0.5;
+    padding-left: 2rem;
+}

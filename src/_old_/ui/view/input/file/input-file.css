@@ -1,0 +1,6 @@
+div.ui-view-InputFile {
+    display: contents;
+}
+div.ui-view-InputFile > input {
+    display: none;
+}

@@ -1,0 +1,91 @@
+.startupMode {
+    position: relative;
+    width: 100vw;
+    height: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #0f232e;
+}
+
+.startupMode div.box {
+    position: relative;
+    z-index: 1;
+    height: 300px;
+    padding: 1rem;
+    background-color: var(--theme-color-section);
+    color: var(--theme-color-on-section);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: var(--theme-shadow-dialog);
+    border-radius: 0.5rem;
+}
+
+.startupMode > img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    z-index: 0;
+    opacity: 0;
+    object-fit: cover;
+    transition: all 1s;
+}
+
+.startupMode > img.show {
+    opacity: 1;
+}
+
+.startupMode > footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 1em;
+    background-color: #123b;
+    color: #fffe;
+}
+
+.startupMode > header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 1em;
+    color: #fffe;
+}
+
+.startupMode .message {
+    display: flex;
+    gap: 1em;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.startupMode .message svg {
+    animation: rotation-animation linear 1.5s infinite;
+}
+
+@keyframes rotation-animation {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

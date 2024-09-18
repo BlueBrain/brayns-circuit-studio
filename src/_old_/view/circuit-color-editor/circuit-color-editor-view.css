@@ -1,0 +1,18 @@
+.view-CircuitColorEditorView {
+    margin: 1rem 0;
+}
+
+.view-CircuitColorEditorView > header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.view-CircuitColorEditorView > header > *:first-child {
+    flex: 1 1 auto;
+}
+
+.view-CircuitColorEditorView p {
+    opacity: 0.5;
+}

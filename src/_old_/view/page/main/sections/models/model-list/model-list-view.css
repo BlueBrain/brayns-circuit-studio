@@ -1,0 +1,41 @@
+.view-page-models-ModelsListView div.hint {
+    text-align: center;
+    padding: 1rem;
+}
+
+.view-page-models-ModelsListView div.hint .icon {
+    width: 3rem;
+    height: 3rem;
+    transform: translateY(0) scale(0.8);
+    opacity: 0.5;
+    animation: alternate 0.5s view-page-models-ModelsListView-anim;
+    animation-iteration-count: 20;
+    animation-fill-mode: forwards;
+    animation-delay: 5s;
+    z-index: 999;
+}
+
+.view-page-models-ModelsListView div.hint .inline-icon {
+    vertical-align: baseline;
+}
+
+.view-page-models-ModelsListView details > div.hint {
+    text-align: left;
+    font-size: 80%;
+    opacity: 0.5;
+}
+
+@keyframes view-page-models-ModelsListView-anim {
+    0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0.5;
+    }
+    25% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(50%) scale(1.5);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,28 @@
+.container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    overflow: auto;
+    pointer-events: all;
+    z-index: 999;
+}
+
+.L {
+    justify-items: start;
+}
+
+.R {
+    justify-items: end;
+}
+
+.T {
+    align-items: start;
+}
+
+.B {
+    align-items: end;
+}

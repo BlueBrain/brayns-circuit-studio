@@ -1,0 +1,26 @@
+.view-AboutView div.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.view-AboutView div.grid > div {
+    margin: 0;
+    padding: 0.25rem 1rem;
+}
+
+.view-AboutView div.grid > div:nth-child(2n + 1)::after {
+    content: ":";
+}
+
+.view-AboutView div.grid > div:nth-child(2n + 1) {
+    color: var(--theme-color-on-frame-opacity-50);
+}
+
+.view-AboutView div.grid > div:nth-child(4n + 3),
+.view-AboutView div.grid > div:nth-child(4n + 4) {
+    background-color: var(--theme-color-screen);
+}
+
+.view-AboutView div.grid ul {
+    padding: 0;
+}

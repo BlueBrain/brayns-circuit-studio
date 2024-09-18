@@ -1,0 +1,20 @@
+.toggle {
+    margin: 0;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    box-shadow: 0 0.125em 0.25em var(--theme-color-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.toggle.off {
+    color: var(--theme-color-on-accent-dark);
+    background-color: var(--theme-color-accent-dark);
+}
+
+.toggle.on {
+    color: var(--theme-color-on-accent-light);
+    background-color: var(--theme-color-accent-light);
+}

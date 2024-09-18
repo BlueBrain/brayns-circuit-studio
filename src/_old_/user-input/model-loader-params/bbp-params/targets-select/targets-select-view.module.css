@@ -1,0 +1,6 @@
+.targetsSelect {
+    color: var(--theme-color-accent);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

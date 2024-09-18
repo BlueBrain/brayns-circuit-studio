@@ -1,0 +1,8 @@
+.sandbox-Wizard {
+    padding: 2rem;
+}
+
+.sandbox-Wizard > .wizard {
+    width: 480px;
+    height: 320px;
+}

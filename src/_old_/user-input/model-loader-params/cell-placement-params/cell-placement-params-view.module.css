@@ -1,0 +1,25 @@
+.cellPlacementParams {
+    width: 480px;
+    max-height: 70vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 1em;
+}
+
+.flex {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+}
+
+.flex > * {
+    flex: 0 0 auto;
+}
+
+.flex > div:last-child {
+    flex: 1 1 auto;
+}

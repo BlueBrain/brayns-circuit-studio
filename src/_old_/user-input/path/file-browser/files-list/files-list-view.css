@@ -1,0 +1,53 @@
+.fileSystemBrowser-view-FilesListView {
+    position: relative;
+    background: var(--theme-color-screen);
+    color: var(--theme-color-on-screen);
+    margin: 0.25rem;
+    overflow: auto;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    box-sizing: border-box;
+    flex: 1 1 auto;
+}
+
+.fileSystemBrowser-view-FilesListView p {
+    box-sizing: border-box;
+    text-align: center;
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    overflow: hidden;
+    margin: 0;
+    padding: 1rem;
+    font-size: 150%;
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fileSystemBrowser-view-FilesListView button.file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 2rem;
+    padding: 0 0.5rem;
+    font: inherit;
+    border: none;
+    width: 100%;
+    margin: 0;
+    cursor: pointer;
+    transition: all 0.3s;
+    background-color: var(--theme-color-screen);
+    color: var(--theme-color-on-screen);
+}
+
+.fileSystemBrowser-view-FilesListView button.file-item:nth-child(2n) {
+    background-color: var(--theme-color-frame);
+    color: var(--theme-color-on-frame);
+}
+
+.fileSystemBrowser-view-FilesListView button.file-item:hover {
+    background-color: var(--theme-color-accent);
+    color: var(--theme-color-on-accent);
+}

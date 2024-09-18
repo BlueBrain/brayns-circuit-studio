@@ -1,0 +1,26 @@
+.view-simulationBar-SimulationInputsView {
+    max-width: 320px;
+}
+
+.view-simulationBar-SimulationInputsView div.two-columns-info {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.view-simulationBar-SimulationInputsView
+    div.two-columns-info
+    > div:nth-child(2n + 1) {
+    opacity: 0.5;
+}
+
+.view-simulationBar-SimulationInputsView > div.flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0 0.5rem;
+}
+
+.view-simulationBar-SimulationInputsView > div.flex > * {
+    flex: 1 1 auto;
+}

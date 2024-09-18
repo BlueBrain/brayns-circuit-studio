@@ -1,0 +1,23 @@
+.view-TargetsSelectView {
+    width: 800px;
+    height: 480px;
+    max-width: 98vw;
+    max-height: 70vh;
+}
+
+.view-TargetsSelectView p.hint {
+    opacity: 0.5;
+    font-size: 80%;
+}
+
+.view-TargetsSelectView div.selection {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.view-TargetsSelectView div.selection > * {
+    flex: 0 0 auto;
+}

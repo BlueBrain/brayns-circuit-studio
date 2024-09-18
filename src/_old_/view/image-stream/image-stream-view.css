@@ -1,0 +1,15 @@
+.view-ImageStreamView {
+    position: relative;
+    background: url(./background.jpg);
+    background-repeat: repeat;
+    padding: 0;
+}
+
+.view-ImageStreamView > canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}

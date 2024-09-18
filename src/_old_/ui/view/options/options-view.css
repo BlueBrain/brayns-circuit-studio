@@ -1,0 +1,27 @@
+.ui-view-OptionsView > div.options {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    height: 2em;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.ui-view-OptionsView.vertical > div.options {
+    flex-direction: column;
+    height: auto;
+    width: 100%;
+}
+
+.ui-view-OptionsView.vertical > div.options > .button {
+    min-height: 2em;
+}
+
+.ui-view-OptionsView > div.options > .button {
+    margin: 0;
+    padding: 0 0.5em;
+    flex: 1 1 auto;
+    box-shadow: 0 0 1px currentColor;
+    display: grid;
+    place-items: center;
+}

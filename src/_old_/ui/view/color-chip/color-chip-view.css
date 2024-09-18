@@ -1,0 +1,17 @@
+.ui-view-ColorChipView {
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px currentColor;
+    background-image: url(./checker.jpg);
+    position: relative;
+    overflow: hidden;
+}
+
+.ui-view-ColorChipView > div {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}

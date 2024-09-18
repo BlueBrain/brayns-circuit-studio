@@ -1,0 +1,16 @@
+.feature-snapshot-SnapshotCompositorView {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+
+.feature-snapshot-SnapshotCompositorView > * {
+    flex: 0 0 auto;
+}
+
+.feature-snapshot-SnapshotCompositorView > *:first-child {
+    flex: 1 1 auto;
+}

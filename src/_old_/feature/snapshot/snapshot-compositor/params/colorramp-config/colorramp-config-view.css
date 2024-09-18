@@ -1,0 +1,11 @@
+.feature-snapshot-snapshotCompositor-params-ColorrampConfigView div.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5em;
+}
+
+.feature-snapshot-snapshotCompositor-params-ColorrampConfigView
+    div.grid
+    > div.custom.ui-view-input-TextView.custom.ui-view-input-IntegerView.with-label {
+    margin-bottom: -1.5em;
+}

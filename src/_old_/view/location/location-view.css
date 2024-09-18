@@ -1,0 +1,11 @@
+.view-LocationView {
+    display: grid;
+    grid-template-columns: repeat(3, calc(33% - 1em));
+    place-items: center;
+    margin: 0.5em 0;
+    gap: 1em;
+}
+
+.view-LocationView > .column {
+    max-width: 100%;
+}

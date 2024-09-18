@@ -1,0 +1,7 @@
+.view-page-main-sections-models-circuitDetails-ShowHideCircuitView {
+    display: grid;
+    padding: 0;
+    margin: 0;
+    gap: 0.5em;
+    grid-template-columns: 1fr 1fr 1fr;
+}

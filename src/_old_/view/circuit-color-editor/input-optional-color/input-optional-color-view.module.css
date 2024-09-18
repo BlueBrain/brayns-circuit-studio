@@ -1,0 +1,39 @@
+.InputOptionalColorView {
+    display: grid;
+    grid-template-columns: 2em 1fr 1fr 2em;
+    grid-template-rows: 1fr 1fr;
+    gap: 0.5rem;
+    place-items: center start;
+    margin: 0.5em 0;
+    border-radius: 0.5em;
+    background-color: #fff2;
+}
+
+.checkbox {
+    grid-column: 1/4;
+    grid-row: 1/2;
+}
+
+.selectOnlyMe {
+    color: var(--theme-color-primary);
+    grid-column: 4/5;
+    grid-row: 1/2;
+}
+
+.colorInput {
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+.colorInput > *:nth-child(3n + 2) {
+    margin: 1px 0;
+}
+
+.colorInput > *:nth-child(3n + 1) {
+    overflow: hidden;
+    max-width: 17rem;
+}
+
+.toggleOpacity {
+    grid-column: 3/5;
+}

@@ -1,0 +1,20 @@
+.ui-view-IconView {
+    display: inline-block;
+    padding: 0;
+    height: 1.5rem;
+    transition: all 0.3s;
+    flex: 0 0 auto;
+}
+
+.ui-view-IconView.clickable {
+    cursor: pointer;
+}
+
+.ui-view-IconView.clickable:active {
+    filter: brightness(150%);
+    transform: scale(0.9);
+}
+
+.ui-view-IconView > svg {
+    height: 100%;
+}

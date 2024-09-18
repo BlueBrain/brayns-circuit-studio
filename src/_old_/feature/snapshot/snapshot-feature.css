@@ -1,0 +1,23 @@
+div.feature-Snapshot {
+    margin: 0;
+    padding: 0;
+}
+
+div.feature-Snapshot > img {
+    box-shadow: var(--theme-shadow-button);
+    max-width: 80vw;
+    max-height: 70vh;
+    margin: 1rem;
+    background-image: url("./checker.jpg");
+    background-repeat: repeat;
+}
+
+div.feature-Snapshot > header {
+    background-color: var(--theme-color-primary-dark);
+    color: var(--theme-color-on-primary-dark);
+    padding: 0 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 2rem;
+}

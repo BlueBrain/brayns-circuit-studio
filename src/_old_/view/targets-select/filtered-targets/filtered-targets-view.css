@@ -1,0 +1,28 @@
+.view-targetsSelect-FilteredTargetsView .button {
+    font-size: 80%;
+    padding: 0.25em 0.5em;
+    border-radius: 0.5em;
+    margin: 0.25em;
+}
+
+.view-targetsSelect-FilteredTargetsView nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 0.5em;
+}
+
+.view-targetsSelect-FilteredTargetsView nav > div.nav-button {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 6em;
+}
+
+.view-targetsSelect-FilteredTargetsView nav > div.buttons {
+    text-align: center;
+    flex: 1 1 auto;
+}

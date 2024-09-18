@@ -1,0 +1,26 @@
+.VolumeParams {
+    height: 400px;
+    overflow: auto;
+    max-height: calc(100vh - 5em);
+}
+
+.VolumeParams > p {
+    background-color: var(--theme-color-accent-light);
+    color: var(--theme-color-on-accent-light);
+    padding: 1em;
+    border-radius: 0.5em;
+    box-shadow: 0 0.25em 0.5em var(--theme-color-accent-dark);
+    margin: 1em 0;
+}
+
+.grid {
+    display: grid;
+    gap: 0 1em;
+    align-content: start start;
+    grid-template-columns: auto 1fr;
+}
+
+.grid > div:nth-child(2n + 1) {
+    font-weight: bolder;
+    opacity: 0.5;
+}

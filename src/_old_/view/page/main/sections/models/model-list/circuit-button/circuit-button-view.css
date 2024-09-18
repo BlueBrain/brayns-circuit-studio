@@ -1,0 +1,45 @@
+.view-page-models-CircuitButtonView {
+    display: grid;
+    padding: 0.5em;
+    box-sizing: border-box;
+    border-radius: 0.5em;
+    gap: 0.5em;
+    border: 1px solid var(--theme-color-on-section-opacity-30);
+    margin: 0.5em 0;
+    grid-template-columns: auto auto 1fr auto;
+    grid-template-rows: 1fr 1fr;
+}
+
+.view-page-models-CircuitButtonView > * {
+    flex: 0 0 auto;
+}
+
+.view-page-models-CircuitButtonView > div.label {
+    grid-column: 1/5;
+    flex: 1 1 auto;
+    word-break: break-all;
+}
+
+.view-page-models-CircuitButtonView div.path {
+    opacity: 0.5;
+    font-size: 80%;
+}
+
+.view-page-models-CircuitButtonView img {
+    width: 5rem;
+    height: 5rem;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 0.25em solid var(--theme-color-primary);
+    background-color: #000;
+}
+
+.view-page-models-CircuitButtonView .report {
+    background: var(--theme-color-accent);
+    color: var(--theme-color-on-accent);
+    border-radius: 999vmax;
+    padding: 0 0.5em;
+    margin: 0 0.5em;
+    font-size: 80%;
+    font-weight: bold;
+}

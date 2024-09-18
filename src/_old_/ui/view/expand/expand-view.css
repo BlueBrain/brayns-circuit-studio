@@ -1,0 +1,29 @@
+.view-SectionView {
+    border-radius: 1rem;
+    margin: 1rem 0;
+    overflow: hidden;
+}
+
+.view-SectionView > .header {
+    border-radius: 1rem 1rem 0 0;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 3rem;
+    padding: 0 1rem;
+}
+
+.view-SectionView > div.body {
+    padding: 0.5rem 1rem;
+}
+
+.view-SectionView > .header .left-icon {
+    transition: transform 0.3s;
+}
+
+.view-SectionView > .header.expanded .left-icon {
+    transform: rotate(90deg);
+}

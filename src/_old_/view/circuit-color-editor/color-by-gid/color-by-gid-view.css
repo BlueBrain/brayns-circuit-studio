@@ -1,0 +1,23 @@
+.view-circuitColorEditor-ColorByGidView div.add {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: -2em;
+}
+
+.view-circuitColorEditor-ColorByGidView div.color-ranges {
+    padding: 0.25rem;
+    margin: 1rem 0;
+    border-radius: 0.25rem;
+}
+
+.view-circuitColorEditor-ColorByGidView div.persistence {
+    display: flex;
+    justify-content: space-around;
+    margin: 0.5rem;
+}
+
+.view-circuitColorEditor-ColorByGidView p {
+    margin-top: 1em;
+}

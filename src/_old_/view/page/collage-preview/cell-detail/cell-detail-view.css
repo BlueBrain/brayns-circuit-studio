@@ -1,0 +1,5 @@
+.view-page-collagePreview-CellDetailView div.neuron {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

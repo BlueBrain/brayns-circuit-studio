@@ -1,0 +1,22 @@
+{
+<<<<<<< HEAD
+    "app.js": "auto/scr/app.1e8348b219c030234d1b.js",
+    "scr/872.js": "auto/scr/872.ed72be269d76aadc0aaa.js",
+    "GolgiCell.swc": "auto/GolgiCell.swc",
+    "no-axon.swc": "auto/no-axon.swc",
+    "test-1.swc": "auto/test-1.swc",
+    "favicon.ico": "auto/favicon.ico",
+    "index.html": "auto/index.html",
+    "test-2.swc": "auto/test-2.swc"
+=======
+  "app.js": "auto/scr/app.b391c975a5257d3cc6af.js",
+  "scr/872.js": "auto/scr/872.ed72be269d76aadc0aaa.js",
+  "GolgiCell.swc": "auto/GolgiCell.swc",
+  "no-axon.swc": "auto/no-axon.swc",
+  "test-1.swc": "auto/test-1.swc",
+  "favicon.ico": "auto/favicon.ico",
+  "index.html": "auto/index.html",
+  "test.swc": "auto/test.swc",
+  "test-2.swc": "auto/test-2.swc"
+>>>>>>> 89ca7a4 (Fixed strange visual artifact when a dendrite faces the camera.)
+}

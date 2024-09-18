@@ -1,0 +1,22 @@
+.feature-bezierSlices-main-QuadView {
+    background-color: #000;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: stretch;
+}
+
+.feature-bezierSlices-main-QuadView > div {
+    position: relative;
+    margin: 0;
+    border: 1px dashed #fff5;
+    background-color: #000;
+}
+
+.feature-bezierSlices-main-QuadView > div > label {
+    position: absolute;
+    left: 1em;
+    top: 1em;
+    color: #fff;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
