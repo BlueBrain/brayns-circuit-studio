@@ -2,10 +2,12 @@ import { GenericEvent } from "@tolokoban/ui"
 import JsonRpcService from "./json-rpc"
 import { makeWebsocketURL } from "./url"
 import { Renderer } from "./renderer"
+import { Backend } from "./backend"
 
 class ServiceClass {
     public readonly eventMessageConnect = new GenericEvent<string>()
     public readonly renderer: Renderer
+    public readonly backend: Backend
 
     private _brayns: JsonRpcService | null = null
     private _backend: JsonRpcService | null = null
@@ -13,6 +15,7 @@ class ServiceClass {
 
     constructor() {
         this.renderer = new Renderer(this.getBrayns)
+        this.backend = new Backend(this.getBackend)
     }
 
     get hostname() {

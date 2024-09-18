@@ -10,18 +10,20 @@ export interface SceneProps {
 
 export function Scene({ className }: SceneProps) {
     const refPainterBrayns = React.useRef<PainterBrayns | null>(null)
+    const handleMount = React.useCallback(
+        (canvas: HTMLCanvasElement | null) => {
+            if (!canvas) return
+
+            if (!refPainterBrayns.current) {
+                refPainterBrayns.current = new PainterBrayns()
+            }
+            refPainterBrayns.current.canvas = canvas
+        },
+        [refPainterBrayns]
+    )
     return (
         <div className={classNames(styles.main, className)}>
-            <canvas
-                ref={(canvas) => {
-                    if (!canvas) return
-
-                    if (!refPainterBrayns.current) {
-                        refPainterBrayns.current = new PainterBrayns()
-                    }
-                    refPainterBrayns.current.canvas = canvas
-                }}
-            ></canvas>
+            <canvas ref={handleMount}></canvas>
         </div>
     )
 }

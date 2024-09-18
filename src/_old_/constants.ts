@@ -7,7 +7,7 @@ import { Vector4 } from "./contract/tool/calc"
  * module load unstable brayns/${BRAYNS_VERSION}
  * ```
  */
-export const BRAYNS_VERSION = "3.8.0"
+export const BRAYNS_VERSION = "3.10.0"
 export const BACKEND_VERSION = "2.4.0"
 
 export const DEFAULT_COLOR: Vector4 = [1, 0.7, 0, 1]

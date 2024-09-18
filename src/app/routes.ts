@@ -17,6 +17,7 @@ import access0 from "./access"
 export const ROUTES: Record<RoutePath, string[]> = {
     "/": ["/"],
     "/connection": ["/connection"],
+    "/load": ["/load"],
     "/movies": ["/movies"],
     "/movies/1": ["/movies/1"],
     "/movies/simul": ["/movies/simul"],

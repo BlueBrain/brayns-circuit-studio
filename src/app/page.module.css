@@ -1,0 +1,5 @@
+.main pre {
+    background: var(--theme-color-primary-1);
+    color: var(--theme-color-on-primary-1);
+    padding: var(--theme-gap-M);
+}

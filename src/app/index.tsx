@@ -17,12 +17,13 @@ import { matchRoute, useRouteContext, ROUTES } from "./routes"
 import { RouteMatch, RoutePath } from "./types"
 
 import Layout0 from "./layout"
-import Layout5 from "./scene/layout"
+import Layout6 from "./scene/layout"
 const Page0 = React.lazy(() => import("./page"))
 const Page1 = React.lazy(() => import("./connection/page"))
-const Page3 = React.lazy(() => import("./movies/1/page"))
-const Page4 = React.lazy(() => import("./movies/simul/page"))
-const Page5 = React.lazy(() => import("./scene/page"))
+const Page2 = React.lazy(() => import("./load/page"))
+const Page4 = React.lazy(() => import("./movies/1/page"))
+const Page5 = React.lazy(() => import("./movies/simul/page"))
+const Page6 = React.lazy(() => import("./scene/page"))
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function App({ lang }: { lang?: string }) {
@@ -31,18 +32,20 @@ export default function App({ lang }: { lang?: string }) {
     const ly0 = Layout0
     const pg0 = Page0
     const pg1 = Page1
-    const pg3 = Page3
+    const pg2 = Page2
     const pg4 = Page4
-    const ly5 = Layout5
     const pg5 = Page5
+    const ly6 = Layout6
+    const pg6 = Page6
     return (
         <Route path="/" Page={pg0} Layout={ly0} fallback={fb} context={context}>
             <Route path="/connection" Page={pg1} fallback={fb} context={context}/>
+            <Route path="/load" Page={pg2} fallback={fb} context={context}/>
             <Route path="/movies" fallback={fb} context={context}>
-                <Route path="/movies/1" Page={pg3} fallback={fb} context={context}/>
-                <Route path="/movies/simul" Page={pg4} fallback={fb} context={context}/>
+                <Route path="/movies/1" Page={pg4} fallback={fb} context={context}/>
+                <Route path="/movies/simul" Page={pg5} fallback={fb} context={context}/>
             </Route>
-            <Route path="/scene" Page={pg5} Layout={ly5} fallback={fb} context={context}/>
+            <Route path="/scene" Page={pg6} Layout={ly6} fallback={fb} context={context}/>
         </Route>
     )
 }

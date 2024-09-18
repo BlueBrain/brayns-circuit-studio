@@ -1,3 +1,4 @@
+import { State } from "@/state"
 import {
     ViewButton,
     ViewInputNumber,
@@ -8,7 +9,6 @@ import {
 } from "@tolokoban/ui"
 import React from "react"
 
-import { State } from "@/state"
 import { goto } from "./routes"
 
 import Styles from "./page.module.css"

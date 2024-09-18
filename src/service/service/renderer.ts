@@ -41,4 +41,25 @@ export class Renderer {
         window.URL.revokeObjectURL(url)
         return image
     }
+
+    async getVersion(): Promise<{
+        major: number
+        minor: number
+        patch: number
+        revision: string
+    }> {
+        const data = await this.getBrayns().exec("get-version")
+        assertType<{
+            major: number
+            minor: number
+            patch: number
+            revision: string
+        }>(data, {
+            major: "number",
+            minor: "number",
+            patch: "number",
+            revision: "string",
+        })
+        return data
+    }
 }

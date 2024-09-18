@@ -1,6 +1,6 @@
 import React from "react"
 import Styles from "./layout.module.css"
-import { Theme, ViewPanel } from "@tolokoban/ui"
+import { ModalProvider, Theme, ViewPanel } from "@tolokoban/ui"
 
 /**
  * Splash screen fading duration in millisecs.
@@ -22,7 +22,7 @@ new Theme({
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     React.useEffect(removeSplash, [])
-    return children
+    return <ModalProvider>{children}</ModalProvider>
 }
 
 function removeSplash() {
