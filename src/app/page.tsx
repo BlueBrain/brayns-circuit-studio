@@ -1,7 +1,19 @@
+import {
+    ViewButton,
+    ViewInputNumber,
+    ViewInputText,
+    ViewPanel,
+    useModal,
+    useThrowableAsyncCallback,
+} from "@tolokoban/ui"
+import React from "react"
+
+import { State } from "@/state"
+import { goto } from "./routes"
+
+import Styles from "./page.module.css"
+
 export default function Page() {
-<<<<<<< HEAD
-    return <h1>Hello Circuit Studio!</h1>
-=======
     const modal = useModal()
     const [webserver, setWebserver] = State.beta.webserver.useState()
     const [radius, setRadius] = State.beta.radius.useState()
@@ -111,5 +123,4 @@ export default function Page() {
             </ViewPanel>
         </ViewPanel>
     )
->>>>>>> 9850abf (More explanation for fake simul comparator)
 }

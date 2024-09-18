@@ -22,4 +22,18 @@ export const State = {
             },
         }),
     },
+    beta: {
+        webserver: new AtomicState("/simul/", {
+            storage: {
+                id: "beta/webserver",
+                guard: isString,
+            },
+        }),
+        radius: new AtomicState(100, {
+            storage: {
+                id: "beta/radius",
+                guard: isNumber,
+            },
+        }),
+    },
 }

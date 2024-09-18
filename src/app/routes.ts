@@ -19,6 +19,7 @@ export const ROUTES: Record<RoutePath, string[]> = {
     "/connection": ["/connection"],
     "/movies": ["/movies"],
     "/movies/1": ["/movies/1"],
+    "/movies/simul": ["/movies/simul"],
     "/scene": ["/scene"],
 }
 
