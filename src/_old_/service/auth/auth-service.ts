@@ -7,6 +7,7 @@ import {
 import { HTTP_200_OK } from "../../http/status"
 import APP_CONFIG from "../../config"
 import { isString } from "../../tool/validator"
+import React from "react"
 /* eslint-disable camelcase */
 
 const HOUR_TO_SECONDS = 3600
@@ -50,6 +51,12 @@ class AuthService implements AuthenticationServiceInterface {
         if (isString(tokenFromParams)) {
             console.info("A token has been provided as URL param.")
         }
+    }
+
+    useToken() {
+        const [token, setToken] = React.useState<string | null>(null)
+        this.authorize().then(setToken).catch(console.error)
+        return token
     }
 
     public async authorize() {

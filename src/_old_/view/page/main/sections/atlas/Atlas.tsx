@@ -100,6 +100,7 @@ export default function (props: AtlasProps) {
             allRegions.find((region) => region.acronym === find)
         setSelectedRegion(region)
     }
+
     return (
         <div className={getClassName(props)}>
             {atlas.getRootRegions().map((region) => (
@@ -109,7 +110,7 @@ export default function (props: AtlasProps) {
                     value={region}
                     highlight={selectedRegion?.id ?? -1}
                     visibleRegions={visibleRegions}
-                    expandedNodes={expandedNodes}
+                    expandedNodes={ensureRootIsAlwaysExpanded(expandedNodes)}
                     onCollapse={handleCollapse}
                     onExpand={handleExpand}
                 />
@@ -214,4 +215,11 @@ function useMeshDownloader() {
         },
         [modal, nexus, fileSaver]
     )
+}
+
+function ensureRootIsAlwaysExpanded(expandedNodes: number[]): number[] {
+    const root = 8
+    return expandedNodes.includes(root)
+        ? expandedNodes
+        : [root, ...expandedNodes]
 }

@@ -1,9 +1,14 @@
 import * as React from "react"
+
 import Dialog from "@/_old_/ui/view/dialog"
-import "./about-view.css"
 import BraynsApiServiceInterface from "@/_old_/contract/service/brayns-api/brayns-api"
+import AuthService from "@/_old_/service/auth"
 import BackendManagerInterface from "../../contract/manager/backend"
 import { assertType } from "../../tool/validator"
+
+import "./about-view.css"
+import Button from "@/_old_/ui/view/button"
+import { useModal } from "@/_old_/ui/modal"
 
 export interface AboutViewProps {
     className?: string
@@ -13,6 +18,18 @@ export interface AboutViewProps {
 }
 
 export default function AboutView(props: AboutViewProps) {
+    const modal = useModal()
+    const token = AuthService.useToken()
+    const handleCopyToken = () => {
+        navigator.clipboard
+            .writeText(token ?? "No token found!")
+            .then(() => {
+                void modal.info(
+                    "Current token has been copied into the clipboard."
+                )
+            })
+            .catch(console.error)
+    }
     const [rendererVersion, setRendererVersion] = React.useState("...")
     const [backendVersion, setBackendVersion] = React.useState("...")
     const [plugins, setPlugins] = React.useState<string[]>([])
@@ -27,29 +44,37 @@ export default function AboutView(props: AboutViewProps) {
             title={title}
             onOK={props.onClose}
         >
-            <h1>Powered by Brayns renderer</h1>
-            <div className="grid">
-                <div>Version</div>
-                <div>{rendererVersion}</div>
-                <div>Address</div>
-                <div>
-                    {cleanUpAddress(props.renderer.jsonRpcService.address)}
+            <div style={{ maxWidth: "480px" }}>
+                <h1>Powered by Brayns renderer</h1>
+                <div className="grid">
+                    <div>Version</div>
+                    <div>{rendererVersion}</div>
+                    <div>Address</div>
+                    <div>
+                        {cleanUpAddress(props.renderer.jsonRpcService.address)}
+                    </div>
+                    <div>Plugins</div>
+                    <div>
+                        <ul>
+                            {plugins.map((plugin) => (
+                                <li key={plugin}>{plugin}</li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
-                <div>Plugins</div>
-                <div>
-                    <ul>
-                        {plugins.map((plugin) => (
-                            <li key={plugin}>{plugin}</li>
-                        ))}
-                    </ul>
+                <h1>And the Circuit Studio Backend</h1>
+                <div className="grid">
+                    <div>Version</div>
+                    <div>{backendVersion}</div>
+                    <div>Address</div>
+                    <div>{cleanUpAddress(props.backend.address)}</div>
                 </div>
-            </div>
-            <h1>And the Circuit Studio Backend</h1>
-            <div className="grid">
-                <div>Version</div>
-                <div>{backendVersion}</div>
-                <div>Address</div>
-                <div>{cleanUpAddress(props.backend.address)}</div>
+                <h1>Current user</h1>
+                <Button
+                    flat
+                    label="Copy the current token"
+                    onClick={handleCopyToken}
+                />
             </div>
         </Dialog>
     )
