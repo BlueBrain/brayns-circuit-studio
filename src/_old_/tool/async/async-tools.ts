@@ -30,7 +30,7 @@ export const debounce = <T, F extends (...args: never[]) => T>(
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const throttle = <F extends (...args: any[]) => any>(
+export const throttle = <F extends (...args: never[]) => any>(
     action: F,
     delay: number
 ) => {
@@ -65,13 +65,16 @@ export const throttle = <F extends (...args: any[]) => any>(
  * it will be lost (never executed).
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const squash = <T, F extends (...args: any[]) => Promise<T>>(
+export const squash = <
+    A extends Array<unknown>,
+    F extends (...args: A) => Promise<void>,
+>(
     action: F
 ) => {
-    let nextJob: null | unknown[] = null
+    let nextJob: null | A = null
     let isWorking = false
 
-    return async (...job: unknown[]) => {
+    return async (...job: A) => {
         nextJob = job
         if (isWorking) return
 

@@ -26,6 +26,7 @@ import {
 } from "@tolokoban/tgd"
 import { colorToRGBA } from "@/_old_/util/colors"
 import { useServiceLocator } from "@/_old_/tool/locator"
+import { debounce, squash } from "@/_old_/tool/async"
 
 export default class OverlayPainter extends OverlayPainterInterface {
     private context: TgdContext | null = null
@@ -176,45 +177,58 @@ export default class OverlayPainter extends OverlayPainterInterface {
         context.paint()
     }
 
-    private readonly handleVisibleRegionsChange = (regionIds: number[]) => {
-        const { visibleMeshes, context } = this
+    private readonly handleVisibleRegionsChange = squash(
+        async (regionIds: number[]) => {
+            const { visibleMeshes, context } = this
 
-        if (!context) {
-            console.log("No context!")
-            return
-        }
-
-        console.log("🚀 [overlay-painter] regionIds = ", regionIds) // @FIXME: Remove this line written on 2024-10-01 at 14:48
-        this.updatePainterCamera()
-        visibleMeshes.forEach((painter, regionId) => {
-            if (!regionIds.includes(regionId)) {
-                this.regionsPainterGroup.remove(painter)
+            if (!context) {
+                console.log("No context!")
+                return
             }
-        })
-        regionIds.forEach((regionId) => visibleMeshes.delete(regionId))
-        const meshes = this.getMeshesForRegionIds(regionIds)
-        console.log("🚀 [overlay-painter] regionIds = ", regionIds) // @FIXME: Remove this line written on 2024-02-07 at 16:23
-        for (const mesh of meshes) {
-            const { region } = mesh
-            if (!visibleMeshes.has(region.id)) {
-                this.loadMesh(region.id)
-                    .then((geometry) => {
-                        console.log(
-                            "🚀 [overlay-painter] geometry = ",
-                            geometry
-                        ) // @FIXME: Remove this line written on 2024-10-01 at 14:50
+
+            void this.debug()
+            console.log("🚀 [overlay-painter] regionIds = ", regionIds) // @FIXME: Remove this line written on 2024-10-01 at 14:48
+            visibleMeshes.forEach((painter, regionId) => {
+                if (regionIds.includes(regionId)) {
+                    console.log("Remove painter:", regionId, painter)
+                    this.regionsPainterGroup.remove(painter)
+                }
+            })
+            regionIds.forEach((regionId) => visibleMeshes.delete(regionId))
+            const meshes = this.getMeshesForRegionIds(regionIds)
+            console.log("🚀 [overlay-painter] regionIds = ", regionIds) // @FIXME: Remove this line written on 2024-02-07 at 16:23
+            for (const mesh of meshes) {
+                const { region } = mesh
+                if (!visibleMeshes.has(region.id)) {
+                    try {
+                        const geometry = await this.loadMesh(region.id)
                         const painter = new PainterGhost(context, {
+                            name: `${mesh.id} - ${mesh.region.acronym}`,
                             geometry,
                             color: new TgdVec4(...mesh.color),
                         })
                         visibleMeshes.set(region.id, painter)
+                        console.log("Add painter:", region.id, painter)
                         this.regionsPainterGroup.add(painter)
-                    })
-                    .catch(console.error)
+                    } catch (ex) {
+                        console.error(`Unable to load region ${region.id}:`, ex)
+                    }
+                }
             }
+            this.updatePainterCamera()
+            context.paint()
         }
-        context.paint()
-    }
+    )
+
+    private readonly debug = debounce(() => {
+        console.log(
+            JSON.stringify(
+                this.regionsPainterGroup.debugHierarchy(),
+                null,
+                "  "
+            )
+        )
+    }, 1000)
 
     private readonly handleOpacityChange = (_opacity: number) => {}
 

@@ -19,6 +19,7 @@ export interface PainterGhostOptions {
      * A `string` for Wavefront objects, and an `ArrayBuffer` for GLB objects.
      */
     geometry: TgdGeometry
+    name?: string
     color?: TgdVec4
 }
 
@@ -31,9 +32,10 @@ export class PainterGhost extends TgdPainter {
 
     constructor(
         private readonly context: TgdContext,
-        { geometry, color }: PainterGhostOptions
+        { geometry, color, name }: PainterGhostOptions
     ) {
         super()
+        this.name = name ?? this.name
         if (color) {
             this.color.reset(...color)
         }
