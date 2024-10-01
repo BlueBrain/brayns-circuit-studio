@@ -1,9 +1,12 @@
+import * as React from "react"
+
+import OverlayPainter from "../../manager/overlay-painter/overlay-painter"
+
 import { half } from "@/_old_/constants"
 import ImageStreamInterface from "@/_old_/contract/manager/image-stream"
 import { useCanvasResizer } from "@/_old_/ui/hooks/canvas-resizer"
-import * as React from "react"
+
 import "./image-stream-view.css"
-import OverlayPainter from "../../manager/overlay-painter/overlay-painter"
 
 export interface ImageStreamViewProps {
     className?: string

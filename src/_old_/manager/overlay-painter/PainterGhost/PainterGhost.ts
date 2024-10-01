@@ -1,6 +1,7 @@
 import {
     TgdContext,
     TgdGeometry,
+    TgdGeometryBox,
     TgdPainter,
     TgdPainterFramebufferOld,
     TgdParserGLTransfertFormatBinary,
@@ -17,7 +18,7 @@ export interface PainterGhostOptions {
     /**
      * A `string` for Wavefront objects, and an `ArrayBuffer` for GLB objects.
      */
-    objectDefinition: string | ArrayBuffer
+    geometry: TgdGeometry
     color?: TgdVec4
 }
 
@@ -30,19 +31,12 @@ export class PainterGhost extends TgdPainter {
 
     constructor(
         private readonly context: TgdContext,
-        { objectDefinition, color }: PainterGhostOptions
+        { geometry, color }: PainterGhostOptions
     ) {
         super()
         if (color) {
             this.color.reset(...color)
         }
-        const factory =
-            typeof objectDefinition === "string"
-                ? new TgdParserMeshWavefront(objectDefinition)
-                : new TgdParserGLTransfertFormatBinary(objectDefinition)
-        const geometry: TgdGeometry = factory.makeGeometry({
-            computeNormals: true,
-        })
         this.stamp = new StampPainter(context, geometry)
         this.framebuffer = new TgdPainterFramebufferOld(context, {
             viewportMatchingScale: 1,
