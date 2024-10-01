@@ -5,6 +5,7 @@ const CopyPlugin = require("copy-webpack-plugin")
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const EnvironmentVariablesPlugin = require("./webpack/plugins/environment-variables-plugin")
 const { WebpackManifestPlugin } = require("webpack-manifest-plugin")
+const WebpackShellPluginNext = require("webpack-shell-plugin-next")
 const Webpack = require("webpack")
 
 module.exports = (env) => {
@@ -68,6 +69,13 @@ module.exports = (env) => {
         },
         plugins: [
             new Webpack.ProgressPlugin(),
+            new WebpackShellPluginNext({
+                onBuildStart: {
+                    scripts: ["npm run routes"],
+                    blocking: true,
+                    parallel: false,
+                },
+            }),
             // List of the needed files for later caching.
             new WebpackManifestPlugin({
                 filter: (file) => {

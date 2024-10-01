@@ -48,6 +48,9 @@ def log(*message: str):
 
 
 def cancel_allocation():
+    if len(sys.argv) < 3:
+        return
+
     [instance_index] = sys.argv[2].split("/")
     os.system(f'scancel --name="BraynsAgent{instance_index}"')
 
@@ -195,8 +198,8 @@ def get_frame_descriptions(config, instance_index, instances_count):
     frames_count = int(config["fps"] * config["duration"])
     log("Total frames to generate:", frames_count)
     frame_descriptions = []
-    first_step = config["firstStep"]
-    last_step = config["lastStep"]
+    first_step = config.get("firstStep", 0)
+    last_step = config.get("lastStep", frames_count - 1)
     for frame_index in range(frames_count):
         if frame_index % instances_count != instance_index:
             continue
@@ -267,6 +270,7 @@ async def start():
         log_box(f"Brayns Movie Maker: instance {instance_index + 1}/{instances_count}")
         await wait_for_brayns_to_be_ready(instance_index)
         config = load_config()
+        has_simulation = config.get("firstStep") != None
         frame_descriptions = get_frame_descriptions(
             config, instance_index, instances_count
         )
@@ -287,7 +291,7 @@ async def start():
                 "ao_samples": 8,
                 "enable_shadows": False,
                 "max_ray_bounces": 3,
-                "samples_per_pixel": 8,
+                "samples_per_pixel": 4,
             },
         )
         await exec("clear-lights")
@@ -306,7 +310,7 @@ async def start():
                 },
             )
             model_id = data[0]["model_id"]
-            if "transferFunction" in model:
+            if has_simulation and "transferFunction" in model:
                 transfer_func = model["transferFunction"]
                 if transfer_func is not None:
                     await exec(
@@ -322,9 +326,7 @@ async def start():
                             },
                         },
                     )
-                await exec(
-                    "enable-simulation", {"model_id": model_id, "enabled": True}
-                )
+                await exec("enable-simulation", {"model_id": model_id, "enabled": True})
             else:
                 try:
                     await exec(
@@ -360,10 +362,12 @@ async def start():
         log("Data loaded successfuly.")
         epflLogoPath = os.path.abspath("./epfl-logo.png")
         bbpLogoPath = os.path.abspath("./bbp-logo.png")
+        frame_index = 0
         for frame in frame_descriptions:
             log(f"Setting camera for step {frame.step}...")
             cameras_count = len(config["lookat"]["position"])
             idx = frame.step % cameras_count
+            frame_index += 1
             position = config["lookat"]["position"][idx]
             target = config["lookat"]["target"][idx]
             up = config["lookat"]["up"][idx]
@@ -373,14 +377,30 @@ async def start():
             height = config["orthographic"]["height"][idx]
             await exec("set-camera-orthographic", {"height": height})
             log(f'Generating "{frame.path}"...')
-            await exec(
-                "snapshot",
-                {
-                    "image_settings": {"size": config["resolution"], "quality": 100},
-                    "simulation_frame": frame.step,
-                    "file_path": frame.path,
-                },
-            )
+            if has_simulation:
+                await exec(
+                    "snapshot",
+                    {
+                        "image_settings": {
+                            "size": config["resolution"],
+                            "quality": 100,
+                        },
+                        "simulation_frame": frame.step,
+                        "file_path": frame.path,
+                    },
+                )
+            else:
+                # No simulation.
+                await exec(
+                    "snapshot",
+                    {
+                        "image_settings": {
+                            "size": config["resolution"],
+                            "quality": 100,
+                        },
+                        "file_path": frame.path,
+                    },
+                )
             # ============================================
             log(f'Compositing "{frame.path_final}"...')
             margin = 3
@@ -407,7 +427,11 @@ async def start():
             painter.scalebar(
                 20, 1, config["orthographic"]["height"][frame.step] / height
             )
-            if config.get("simulationTime") != None:
+            if (
+                config.get("firstStep") != None
+                and config.get("lastStep") != None
+                and config.get("simulationTime") != None
+            ):
                 # Timeline
                 percent = (frame.step - config["firstStep"]) / (
                     config["lastStep"] - config["firstStep"]
