@@ -8,8 +8,8 @@
     ],
     "dependencies": {
         "@math.gl/core": "^4.1.0",
-        "@tolokoban/react-state": "^0.2.1",
-        "@tolokoban/tgd": "^2.0.13",
+        "@tolokoban/react-state": "^0.3.0",
+        "@tolokoban/tgd": "^2.0.14",
         "@tolokoban/type-guards": "^0.6.0",
         "@tolokoban/ui": "^0.19.3",
         "@types/crypto-js": "^4.2.2",

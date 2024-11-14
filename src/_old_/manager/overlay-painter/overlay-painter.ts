@@ -36,7 +36,7 @@ export default class OverlayPainter extends OverlayPainterInterface {
      * Key: Region id.
      * Val: PainterGhost.
      */
-    private readonly visibleMeshes = new Map<number, PainterGhost>()
+    private readonly currentlyVisiblePainters = new Map<number, PainterGhost>()
     /**
      * Attached canvas is refreshed as soon as the camera moves, a meshes is added
      * or removed from the scene, and if its size changes.
@@ -179,7 +179,7 @@ export default class OverlayPainter extends OverlayPainterInterface {
 
     private readonly handleVisibleRegionsChange = squash(
         async (regionIds: number[]) => {
-            const { visibleMeshes, context } = this
+            const { currentlyVisiblePainters, context } = this
 
             if (!context) {
                 console.log("No context!")
@@ -187,19 +187,22 @@ export default class OverlayPainter extends OverlayPainterInterface {
             }
 
             void this.debug()
-            console.log("🚀 [overlay-painter] regionIds = ", regionIds) // @FIXME: Remove this line written on 2024-10-01 at 14:48
-            visibleMeshes.forEach((painter, regionId) => {
+            const regionIdsToRemove: number[] = []
+            currentlyVisiblePainters.forEach((painter, regionId) => {
                 if (regionIds.includes(regionId)) {
                     console.log("Remove painter:", regionId, painter)
                     this.regionsPainterGroup.remove(painter)
+                    regionIdsToRemove.push(regionId)
                 }
             })
-            regionIds.forEach((regionId) => visibleMeshes.delete(regionId))
+            context.paint()
+            regionIdsToRemove.forEach((regionId) =>
+                currentlyVisiblePainters.delete(regionId)
+            )
             const meshes = this.getMeshesForRegionIds(regionIds)
-            console.log("🚀 [overlay-painter] regionIds = ", regionIds) // @FIXME: Remove this line written on 2024-02-07 at 16:23
             for (const mesh of meshes) {
                 const { region } = mesh
-                if (!visibleMeshes.has(region.id)) {
+                if (!currentlyVisiblePainters.has(region.id)) {
                     try {
                         const geometry = await this.loadMesh(region.id)
                         const painter = new PainterGhost(context, {
@@ -207,9 +210,9 @@ export default class OverlayPainter extends OverlayPainterInterface {
                             geometry,
                             color: new TgdVec4(...mesh.color),
                         })
-                        visibleMeshes.set(region.id, painter)
-                        console.log("Add painter:", region.id, painter)
+                        currentlyVisiblePainters.set(region.id, painter)
                         this.regionsPainterGroup.add(painter)
+                        context.paint()
                     } catch (ex) {
                         console.error(`Unable to load region ${region.id}:`, ex)
                     }
