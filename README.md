@@ -1,5 +1,7 @@
 # Brayns Circuit Studio
 
+Brans Circuit Studio is the web client to Brayns service.
+
 ## URL parameters
 
 * **host**: the address for the Backend; you can provide a node name, hostname (and port) or a full encoded custom url
@@ -7,48 +9,13 @@
 
 ## Installation
 
-...
-
-## External Libraries
-
-### hammer js
-
-<https://github.com/hammerjs/hammer.js>
-
-### math.gl
-
-<https://math.gl/>
-
-## Pushing in a Sandbox
-
 ```bash
-npm run sandbox
+npm install
+npm start
 ```
 
-### Detailed explanation
+## Funding & Acknowledgment
 
-Add a tag to trigger the CI and create the docker image in Kubernetes.
-Available tags are: `sandbox-1`, `sandbox-2`, `sandbox-3`.
+The development of this software was supported by funding to the Blue Brain Project, a research center of the École polytechnique fédérale de Lausanne (EPFL), from the Swiss government's ETH Board of the Swiss Federal Institutes of Technology.
 
-Let's see an example for Sandbox 1:
-
-```bash
-git tag -d sandbox-1
-git tag sandbox-1 -am "Faster rendering blablabla"
-git push --force --tags
-```
-
-Once the pipeline has run in GitLab, we have to rollup Kubernetes pod:
-
-```bash
-kubectl rollout restart -n bbp-ou-visualization deployment braynscircuitstudio-sandbox-1
-```
-
-### Pushing in test
-
-```sh
-docker login bbpgitlab.epfl.ch:5050
-docker build -t bbpgitlab.epfl.ch:5050/viz/brayns/braynscircuitstudio .
-docker push bbpgitlab.epfl.ch:5050/viz/brayns/braynscircuitstudio
-kubectl rollout restart -n bbp-ou-visualization deployment braynscircuitstudio-dev
-```
+Copyright (c) 2024 Blue Brain Project/EPFL
